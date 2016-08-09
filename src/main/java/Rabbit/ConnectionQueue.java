@@ -9,7 +9,7 @@ import com.rabbitmq.client.ConnectionFactory;
 public class ConnectionQueue {
 
 
-    private ConnectionFactory factory = new ConnectionFactory();
+    private final ConnectionFactory factory = new ConnectionFactory();
 
     public  ConnectionQueue(){
 

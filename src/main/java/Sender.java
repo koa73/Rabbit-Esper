@@ -3,7 +3,7 @@
  * Created by OAKutsenko on 09.08.2016.
  */
 
-import com.rabbitmq.client.ConnectionFactory;
+import Rabbit.ConnectionQueue;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.Channel;
 
@@ -12,17 +12,9 @@ public class Sender {
     private final static String QUEUE_NAME = "hello";
 
     public static void main(String[] args) throws java.io.IOException,
-            java.util.concurrent.TimeoutException{
+            java.util.concurrent.TimeoutException {
 
-            ConnectionFactory factory = new ConnectionFactory();
-
-            factory.setUsername("guest");
-            factory.setPassword("guest");
-            factory.setVirtualHost("/");
-            factory.setHost("10.199.49.224");
-            factory.setPort(5672);
-
-            Connection connection = factory.newConnection();
+            Connection connection = new ConnectionQueue().getConnection();
             Channel channel = connection.createChannel();
 
             channel.queueDeclare(QUEUE_NAME, false, false, false, null);

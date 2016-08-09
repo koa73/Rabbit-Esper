@@ -4,8 +4,10 @@
  */
 
 import Rabbit.ConnectionQueue;
+import com.rabbitmq.client.AMQP;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.Channel;
+
 
 public class Sender {
 
@@ -19,7 +21,10 @@ public class Sender {
 
             channel.queueDeclare(QUEUE_NAME, false, false, false, null);
             String message = "Hello World!";
-            channel.basicPublish("", QUEUE_NAME, null, message.getBytes("UTF-8"));
+            channel.basicPublish("", QUEUE_NAME, (new AMQP.BasicProperties.Builder()
+                    .expiration("30000")
+                    .build()),
+                    message.getBytes("UTF-8"));
             System.out.println(" [x] Sent '" + message + "'");
 
             channel.close();

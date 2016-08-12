@@ -8,5 +8,22 @@
     <artifactId>esper-fraud-analyzer</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <developers>
+        <developer>
+            <name>Oleg Kutsenko</name>
+            <email>koa73i@gmail.com</email>
+            <timezone>GMT+3</timezone>
+        </developer>
+    </developers>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>com.rabbitmq</groupId>
+            <artifactId>amqp-client</artifactId>
+            <version>3.6.5</version>
+        </dependency>
+
+    </dependencies>
 
 </project>

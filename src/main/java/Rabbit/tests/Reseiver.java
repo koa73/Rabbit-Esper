@@ -1,4 +1,4 @@
-/**
+package Rabbit.tests; /**
  * Just receive messages from
  * Created by OAKutsenko on 10.08.2016.
  */
@@ -13,6 +13,7 @@ public class Reseiver {
 
     public static void main(String[] argv)
             throws java.io.IOException,
+            java.util.concurrent.TimeoutException,
             java.lang.InterruptedException {
 
         Connection connection = new ConnectionQueue().getConnection();
